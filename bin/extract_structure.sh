@@ -9,7 +9,7 @@ pressure=`tail -n 500 ${1} | sed -n '/entering subroutine stress .../,/Writing o
     /entering subroutine stress .../{x;d}
     H
   };
-  ${x;p}' | awk 'BEGIN {NLINE=0} {if (NLINE == 2) { print $6; }; ++NLINE }; END {}'`;
+  ${x;p}' | awk 'BEGIN {NLINE=0} {if (NLINE == 2) { pressure=$6; }; ++NLINE }; END {print pressure; }'`;
 
 lattice_information=`cat ${1} | sed -n '/Begin final coordinates/,/End final coordinates/ {
     /Begin final coordinates/{x;d}
