@@ -1,0 +1,42 @@
+ &control
+    calculation = 'vc-relax',
+    prefix = 'CaOH2_ambient'
+    tprnfor = .TRUE
+    tstress = .TRUE
+ /
+ &system
+    ibrav =  4, 
+    celldm(1) = 6.3764, 
+    celldm(3) = 1.2, 
+    nat =  5, 
+    ntyp = 3,
+    ecutwfc = 100,
+    ecutrho = 320,
+ /
+ &electrons
+    mixing_mode = 'local-TF'
+    mixing_beta = 0.3
+    mixing_ndim = 16
+ /
+ &ions
+    ion_dynamics = 'bfgs'
+ /
+ &cell
+    cell_dynamics = 'bfgs'
+    cell_factor = 2.0,
+    press = 700,
+ /
+ATOMIC_SPECIES
+ H  1.007   H.pbe-sp-mt.ncpp
+ O  16.000  O.pbe-sp-mt.ncpp
+ Ca 40.078  Ca.pbe-sp-mt_ion2.ncpp
+
+ ATOMIC_POSITIONS (crystal)
+ Ca 0.0   0.0   0.0
+ O  1/3 2/3 0.287
+ O  2/3 1/3 0.712
+ H  1/3 2/3 0.674
+ H  2/3 1/3 0.325
+
+ K_POINTS (automatic)
+  6 6 6 1 1 1
