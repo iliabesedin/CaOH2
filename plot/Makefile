@@ -12,4 +12,7 @@ hp_with_ambient.eps: ambient.data hp.data experimental.data hp_with_experiment.g
 iceX.eps: iceX.data iceX.gnuplot
 	${PLOTTER} iceX.gnuplot
 
-all: ambient_with_experiment.eps hp_with_experiment.eps hp_with_ambient.eps iceX.eps
+energy_and_enthalpy.eps: ambient.data hp.data energy_and_enthalpy.gnuplot
+	${PLOTTER} energy_and_enthalpy.gnuplot
+
+all: ambient_with_experiment.eps hp_with_experiment.eps hp_with_ambient.eps iceX.eps energy_and_enthalpy.eps
