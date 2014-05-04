@@ -15,4 +15,7 @@ iceX.eps: iceX.data iceX.gnuplot
 energy_and_enthalpy.eps: ambient.data hp.data energy_and_enthalpy.gnuplot
 	${PLOTTER} energy_and_enthalpy.gnuplot
 
-all: ambient_with_experiment.eps hp_with_experiment.eps hp_with_ambient.eps iceX.eps energy_and_enthalpy.eps
+hp.eps: ambient.data hp.data pv.gnuplot
+	${PLOTTER} pv.gnuplot
+
+all: ambient_with_experiment.eps hp_with_experiment.eps hp_with_ambient.eps iceX.eps energy_and_enthalpy.eps hp.eps
