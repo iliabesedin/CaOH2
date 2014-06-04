@@ -1,0 +1,48 @@
+ &control
+    calculation = 'vc-relax',
+    prefix = 'CaH2_ambient'
+    tprnfor = .TRUE
+    tstress = .TRUE
+ /
+ &system
+    ibrav =  8, 
+    celldm(1) = 11.2803, 
+    celldm(2) = 0.6043,
+    celldm(3) = 1.1460, 
+    nat =  12, 
+    ntyp = 2,
+    ecutwfc = 40,
+    ecutrho = 160,
+ /
+ &electrons
+    mixing_mode = 'local-TF'
+    mixing_beta = 0.3
+    mixing_ndim = 16
+ /
+ &ions
+    ion_dynamics = 'bfgs'
+ /
+ &cell
+    cell_dynamics = 'bfgs'
+    cell_factor = 2.0,
+    press = 300,
+ /
+ATOMIC_SPECIES
+ H  1.007   H.pbe-sp-mt.ncpp
+ Ca 40.078  Ca.pbe-sp-mt_ion2.ncpp
+
+ ATOMIC_POSITIONS (crystal)
+ Ca  0.24  1/4   0.1099
+ Ca  0.26 -1/4   0.6099
+ Ca  0.74  1/4   0.3901
+ Ca -0.24 -1/4  -0.1099
+ H  0.3557  1/4   0.4265
+ H  0.1443 -1/4   0.9265
+ H  0.8557  1/4   0.0735
+ H -0.3557 -1/4  -0.4295
+ H  0.9754  1/4   0.6765
+ H -0.4754 -1/4   1.1765
+ H  1.4754  1/4  -0.1735
+ H -0.9754 -1/4  -0.6765
+ K_POINTS (automatic)
+  6 6 6 1 1 1
