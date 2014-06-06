@@ -21,4 +21,7 @@ CaH2_energy_and_enthalpy.eps: CaH2_ambient.data CaH2_18GPa.data CaH2_energy_and_
 hp.eps: ambient.data hp.data pv.gnuplot
 	${PLOTTER} pv.gnuplot
 
-all: ambient_with_experiment.eps hp_with_experiment.eps hp_with_ambient.eps iceX.eps energy_and_enthalpy.eps hp.eps CaH2_energy_and_enthalpy.eps
+CaH2_pv.eps: CaH2_pv.gnuplot CaH2_18GPa.data CaH2_ambient.data
+	${PLOTTER} CaH2_pv.gnuplot
+
+all: ambient_with_experiment.eps hp_with_experiment.eps hp_with_ambient.eps iceX.eps energy_and_enthalpy.eps hp.eps CaH2_energy_and_enthalpy.eps CaH2_pv.eps

@@ -32,7 +32,7 @@ NAME='ecut'
 CWD=`pwd`
 ####################################################
 cd ../tmp
-for PRESS in 0 180 200 400 600 1000 1400
+for PRESS in 0000 0180 0200 0400 0600 1000 1400
 do
 cat > ../results/CaH2_18GPa/CaH2_18GPa.$PRESS.in << EOF
  &control
