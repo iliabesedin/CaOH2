@@ -46,7 +46,11 @@ H_pos=`cat ${1} | sed -n '/Begin final coordinates/,/End final coordinates/ {
   };
   ${x;p}' |awk 'BEGIN {NLINE=0} {if (NLINE == 12) { print $4*'$c_bohr'; }; ++NLINE }; END {}'`;
 
-OH_dist=`echo '' | awk '{print '$H_pos'-'$O_pos'}'`;
+Ca_dist=`cat ${1} | sed -n '/Begin final coordinates/,/End final coordinates/ {
+    /Begin final coordinates/{x;d}
+    H
+  };
+  ${x;p}' |awk 'BEGIN {NLINE=0} {if (NLINE == 9) { print $4*'$c_bohr'; }; ++NLINE }; END {}'`;
 
 total_energy=`tail -n 500 ${1} | sed -n '/!/,/Ry/ {
     /!/{x;d}
@@ -89,4 +93,4 @@ enthalpy=`echo '' | awk '{print '$total_energy+$volume'*'$pressure'/'2.94219e13'
 #  };
 #  ${x;p}'
   
-echo "$pressure		$a_bohr	$c_bohr	$O_pos		$H_pos		$OH_dist			$total_energy	$volume		$enthalpy	$oe_contrib	$hartree_contrib	$xc_contrib	$ewald_contrib"
+echo "$pressure		$a_bohr	$c_bohr	$O_pos		$H_pos		$Ca_pos			$total_energy	$volume		$enthalpy	$oe_contrib	$hartree_contrib	$xc_contrib	$ewald_contrib"

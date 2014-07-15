@@ -1,17 +1,17 @@
  &control
     calculation = 'vc-relax',
-    prefix = 'CaH2_ambient'
+    prefix = 'CaH2_18GPa-blyp-0180'
     tprnfor = .TRUE
     tstress = .TRUE
  /
  &system
     ibrav =  4, 
-    celldm(1) = 6.8695, 
-    celldm(3) = 1.3104, 
+    celldm(1) = 7.152, 
+    celldm(3) = 1.2504, 
     nat = 6, 
     ntyp = 2,
-    ecutwfc = 100,
-    ecutrho = 400,
+    ecutwfc = 120,
+    ecutrho = 480,
  /
  &electrons
     mixing_mode = 'local-TF'
@@ -24,11 +24,11 @@
  &cell
     cell_dynamics = 'bfgs'
     cell_factor = 2.0,
-    press = 0000,
+    press = 0180,
  /
 ATOMIC_SPECIES
- H  1.007   H.pbe-sp-mt.ncpp
- Ca 40.078  Ca.pbe-sp-mt_ion2.ncpp
+ H  1.007   H.blyp-vbc.UPF
+ Ca 40.078  Ca.blyp-sp-hgh.UPF
 
  ATOMIC_POSITIONS (crystal)
  Ca  1/3  2/3 1/4
